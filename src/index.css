@@ -4,7 +4,7 @@ body {
   box-sizing: border-box;
   font-family: sans-serif;
   text-align: center;
-  color: #fff;
+  color: pink;
 }
 
 a,
@@ -20,19 +20,19 @@ h3 {
 }
 
 input::-webkit-input-placeholder {
-  color: #fff !important;
+  color: red !important;
 }
 
 input:-moz-placeholder {
   /* Firefox 18- */
-  color: #fff !important;
+  color: red !important;
 }
 
 input::-moz-placeholder {
   /* Firefox 19+ */
-  color: #fff !important;
+  color: red !important;
 }
 
 input:-ms-input-placeholder {
-  color: #fff !important;
+  color: red !important;
 }

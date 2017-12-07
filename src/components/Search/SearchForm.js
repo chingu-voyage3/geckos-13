@@ -5,19 +5,9 @@ import { array, func } from 'prop-types';
 
 // styles
 import './Search.css';
+import background from '../../helpers/img/cocktail-background.jpg';
 
-const colors = [
-  'red',
-  'orange',
-  'yellow',
-  'olive',
-  'green',
-  'teal',
-  'blue',
-  'violet',
-  'purple',
-  'pink',
-];
+const colors = ['red', 'orange', 'yellow', 'olive', 'green', 'pink'];
 
 const ingredientsSuggestions = [
   {
@@ -69,7 +59,6 @@ class SearchForm extends React.Component {
   };
 
   onChange = (event, { newValue }) => {
-    console.log(newValue);
     this.setState({
       value: newValue,
     });
@@ -112,7 +101,10 @@ class SearchForm extends React.Component {
     };
 
     return (
-      <div className="search-container">
+      <div
+        className="search-container"
+        style={{ backgroundImage: `url(${background})` }}
+      >
         <h3>Add your ingredients</h3>
         <Form size="large">
           <Autosuggest
@@ -140,7 +132,7 @@ class SearchForm extends React.Component {
             </Label>
           ))}
         </div>
-        <Button basic color="red" fluid circular>
+        <Button basic fluid circular>
           Search
         </Button>
       </div>

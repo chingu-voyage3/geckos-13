@@ -72,4 +72,11 @@ describe('Search.js', () => {
       expect(component.instance().state.ingredients.length).toBe(1);
     });
   });
+
+  describe('render', () => {
+    it('should render a SearchForm component', () => {
+      const component = shallow(<Search />);
+      expect(component.find(SearchForm).length).toBe(1);
+    });
+  });
 });
