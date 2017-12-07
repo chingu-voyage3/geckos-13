@@ -1,0 +1,42 @@
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.search-container h3 {
+  font-size: 7vh;
+}
+
+.ui.large.form {
+  width: 80%;
+}
+
+.ui.form .field .ui.input input,
+.ui.form .fields .field .ui.input input {
+  width: 100%;
+  border: 2px solid red;
+  border-radius: 20px;
+  background: transparent;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.ui.basic.button,
+.ui.basic.buttons .button {
+  width: 60%;
+  border: 1px solid red;
+  margin: 15px 0px;
+}
+
+.ui.label {
+  text-transform: capitalize;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.ingredients-holder {
+  width: 60%;
+  text-align: left;
+}

@@ -4,7 +4,7 @@ const duration = 2;
 
 export default {
   show(target, cb) {
-    return TweenMax.from(target, 2, {
+    return TweenMax.from(target, duration, {
       opacity: 0,
       height: 0,
       onComplete: cb,
@@ -13,7 +13,7 @@ export default {
   },
 
   hide(target, cb) {
-    return TweenMax.to(target, 2, {
+    return TweenMax.to(target, duration, {
       opacity: 0,
       height: 0,
       onComplete: cb,

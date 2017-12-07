@@ -4,9 +4,17 @@ body {
   box-sizing: border-box;
   font-family: sans-serif;
   text-align: center;
+  color: #fff;
 }
 
-a {
+a,
+a:hover {
   text-decoration: none;
   color: #fff;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Amatic SC', cursive;
 }

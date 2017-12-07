@@ -1,5 +1,4 @@
 import React from 'react';
-import { TweenMax } from 'gsap';
 import './LandingPage.css';
 import { Link } from 'react-router-dom';
 
