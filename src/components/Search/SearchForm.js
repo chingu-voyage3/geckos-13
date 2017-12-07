@@ -81,11 +81,6 @@ class SearchForm extends React.Component {
       return;
     }
 
-    // no empty strings
-    if (this.state.value.trim(' ') === '') {
-      return;
-    }
-
     this.props.onAddIngredient(this.state.value);
     this.setState({ value: '' });
   };

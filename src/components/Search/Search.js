@@ -17,6 +17,11 @@ class Search extends React.Component {
       return;
     }
 
+    // no empty strings
+    if (val.trim(' ') === '') {
+      return;
+    }
+
     this.setState(prev => ({
       ingredients: [...prev.ingredients, val],
     }));
