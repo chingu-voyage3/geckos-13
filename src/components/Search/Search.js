@@ -1,43 +1,24 @@
 import React from 'react';
-import './Search.css';
+
+// local imports
 import SearchForm from './SearchForm';
-import SearchInput from './SearchInput';
+
+// styles
+import './Search.css';
 
 class Search extends React.Component {
   state = {
-    ingredients: [
-      'one',
-      'two',
-      'red',
-      'orange',
-      'yellow',
-      'olive',
-      'green',
-      'teal',
-      'blue',
-      'violet',
-      'purple',
-      'pink',
-      'brown',
-      'grey',
-      'black',
-    ],
+    ingredients: [],
   };
 
-  addIngredient = (e, val) => {
-    // Only add ingredient if enterkey is pushed
-    if (e.charCode !== 13) {
-      return;
-    }
-
-    // no empty strings
-    if (this.state.value.trim(' ') === '') {
+  addIngredient = val => {
+    /* No dublicate ingredients */
+    if (this.state.ingredients.includes(val)) {
       return;
     }
 
     this.setState(prev => ({
-      ingredients: [...prev.ingredients, this.state.value],
-      value: '',
+      ingredients: [...prev.ingredients, val],
     }));
   };
 
@@ -51,7 +32,7 @@ class Search extends React.Component {
   render() {
     const { value } = this.state;
     return (
-      <SearchInput
+      <SearchForm
         ingredients={this.state.ingredients}
         onAddIngredient={this.addIngredient}
         onDeleteIngredient={this.removeIngredient}

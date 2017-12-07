@@ -13,16 +13,6 @@
   width: 80%;
 }
 
-.ui.form .field .ui.input input,
-.ui.form .fields .field .ui.input input {
-  width: 100%;
-  border: 2px solid red;
-  border-radius: 20px;
-  background: transparent;
-  color: #fff;
-  margin-bottom: 20px;
-}
-
 .ui.basic.button,
 .ui.basic.buttons .button {
   width: 60%;
@@ -39,4 +29,80 @@
 .ingredients-holder {
   width: 60%;
   text-align: left;
+  padding-top: 20px;
+}
+
+.suggestion-text {
+  font-size: 30px;
+  list-style: none;
+}
+
+.react-autosuggest__container {
+  position: relative;
+}
+
+.react-autosuggest__input {
+  width: 100%;
+  border: 2px solid red !important;
+  border-radius: 20px !important;
+  background: transparent !important;
+}
+
+.react-autosuggest__input:hover {
+  width: 100%;
+  border: 2px solid red !important;
+  border-radius: 20px !important;
+  background: transparent !important;
+}
+
+.react-autosuggest__input:focus {
+  outline: none;
+}
+
+.react-autosuggest__container--open .react-autosuggest__input {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.react-autosuggest__suggestions-container {
+  display: none;
+}
+
+.react-autosuggest__container--open .react-autosuggest__suggestions-container {
+  display: block;
+  position: absolute;
+  top: 45px;
+  width: 100%;
+  border: 1px solid red !important;
+  background-color: #fff;
+  border-bottom-left-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+  z-index: 2;
+}
+
+.react-autosuggest__suggestions-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  color: #000;
+}
+
+.react-autosuggest__suggestion {
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.react-autosuggest__suggestion:not(:first-child) {
+  border-top: 1px solid #ddd;
+}
+
+.react-autosuggest__suggestion--focused {
+  background-color: #0c7eaf;
+  color: #fff;
+}
+
+.suggestion-content {
+  display: flex;
+  align-items: center;
+  background-repeat: no-repeat;
 }

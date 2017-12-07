@@ -18,3 +18,21 @@ h2,
 h3 {
   font-family: 'Amatic SC', cursive;
 }
+
+input::-webkit-input-placeholder {
+  color: #fff !important;
+}
+
+input:-moz-placeholder {
+  /* Firefox 18- */
+  color: #fff !important;
+}
+
+input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #fff !important;
+}
+
+input:-ms-input-placeholder {
+  color: #fff !important;
+}
