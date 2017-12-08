@@ -58,7 +58,7 @@ class Search extends React.Component {
               {ingredient}
               <Icon
                 name="delete"
-                onClick={e => this.removeIngredient(e, ingredient)}
+                onClick={e => this.removeIngredient(ingredient)}
               />
             </Label>
           ))}
