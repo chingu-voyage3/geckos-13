@@ -1,7 +1,7 @@
 import React from 'react';
 import Autosuggest from 'react-autosuggest';
 import { Form } from 'semantic-ui-react';
-import { array, func } from 'prop-types';
+import { func } from 'prop-types';
 
 // styles
 import './Search.css';
@@ -84,7 +84,6 @@ class SearchForm extends React.Component {
   };
 
   render() {
-    const { onAddIngredient, onDeleteIngredient, ingredients } = this.props;
     const { value, suggestions } = this.state;
 
     // pass these props to the input.

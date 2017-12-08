@@ -8,11 +8,13 @@
     "react-addons-transition-group": "^15.6.2",
     "react-autosuggest": "^9.3.2",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-redux": "^4.0.8",
     "react-scripts": "1.0.17",
     "react-transition-group": "^2.2.1",
     "redux": "^3.7.2",
+    "redux-devtools": "^3.4.1",
     "redux-thunk": "^2.2.0",
     "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.77.0"
