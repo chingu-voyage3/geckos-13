@@ -1,10 +1,14 @@
 import React from 'react';
+import { Form, Button, Label, Icon } from 'semantic-ui-react';
 
 // local imports
 import SearchForm from './SearchForm';
 
 // styles
 import './Search.css';
+import background from '../../helpers/img/cocktail-background.jpg';
+
+const colors = ['red', 'orange', 'yellow', 'olive', 'green', 'pink'];
 
 class Search extends React.Component {
   state = {
@@ -35,13 +39,34 @@ class Search extends React.Component {
   };
 
   render() {
-    const { value } = this.state;
+    const { value, ingredients } = this.state;
     return (
-      <SearchForm
-        ingredients={this.state.ingredients}
-        onAddIngredient={this.addIngredient}
-        onDeleteIngredient={this.removeIngredient}
-      />
+      <div
+        className="search-container"
+        style={{ backgroundImage: `url(${background})` }}
+      >
+        <h3>Add your ingredients</h3>
+        <SearchForm onAddIngredient={this.addIngredient} />
+        <div className="ingredients-holder">
+          {ingredients.map((ingredient, i) => (
+            <Label
+              color={colors[i % colors.length]}
+              size="tiny"
+              key={i}
+              value={ingredient}
+            >
+              {ingredient}
+              <Icon
+                name="delete"
+                onClick={e => this.removeIngredient(e, ingredient)}
+              />
+            </Label>
+          ))}
+        </div>
+        <Button basic fluid circular>
+          Search
+        </Button>
+      </div>
     );
   }
 }

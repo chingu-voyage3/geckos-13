@@ -1,13 +1,10 @@
 import React from 'react';
 import Autosuggest from 'react-autosuggest';
-import { Form, Button, Label, Icon } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
 import { array, func } from 'prop-types';
 
 // styles
 import './Search.css';
-import background from '../../helpers/img/cocktail-background.jpg';
-
-const colors = ['red', 'orange', 'yellow', 'olive', 'green', 'pink'];
 
 const ingredientsSuggestions = [
   {
@@ -53,9 +50,7 @@ class SearchForm extends React.Component {
   };
 
   static propTypes = {
-    ingredients: array.isRequired,
     onAddIngredient: func.isRequired,
-    onDeleteIngredient: func.isRequired,
   };
 
   onChange = (event, { newValue }) => {
@@ -101,41 +96,16 @@ class SearchForm extends React.Component {
     };
 
     return (
-      <div
-        className="search-container"
-        style={{ backgroundImage: `url(${background})` }}
-      >
-        <h3>Add your ingredients</h3>
-        <Form size="large">
-          <Autosuggest
-            suggestions={suggestions}
-            onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-            onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-            getSuggestionValue={getSuggestionValue}
-            renderSuggestion={renderSuggestion}
-            inputProps={inputProps}
-          />
-        </Form>
-        <div className="ingredients-holder">
-          {ingredients.map((ingredient, i) => (
-            <Label
-              color={colors[i % colors.length]}
-              size="tiny"
-              key={i}
-              value={ingredient}
-            >
-              {ingredient}
-              <Icon
-                name="delete"
-                onClick={e => onDeleteIngredient(ingredient, e)}
-              />
-            </Label>
-          ))}
-        </div>
-        <Button basic fluid circular>
-          Search
-        </Button>
-      </div>
+      <Form size="large">
+        <Autosuggest
+          suggestions={suggestions}
+          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+          getSuggestionValue={getSuggestionValue}
+          renderSuggestion={renderSuggestion}
+          inputProps={inputProps}
+        />
+      </Form>
     );
   }
 }

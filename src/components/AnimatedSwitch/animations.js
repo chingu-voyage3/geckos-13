@@ -1,6 +1,6 @@
 import { TweenMax, Elastic } from 'gsap';
 
-const duration = 2;
+const duration = 1;
 
 export default {
   show(target, cb) {
@@ -17,7 +17,7 @@ export default {
       opacity: 0,
       height: 0,
       onComplete: cb,
-      ease: Elastic.easeOut.config(0.25, 1),
+      ease: Elastic.easeIn.config(0.25, 1),
     });
   },
 };
