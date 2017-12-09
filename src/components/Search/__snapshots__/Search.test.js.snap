@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Search.js should match its empty snapshot 1`] = `
+exports[`---------- Search.js, dumb component ---------- should match its empty snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -24,11 +24,10 @@ ShallowWrapper {
         <SearchForm
           onAddIngredient={[Function]}
 />,
-        <div
-          className="ingredients-holder"
->
-          
-</div>,
+        <IngredientHolder
+          ingredients={undefined}
+          onRemoveIngredient={[Function]}
+/>,
         <Button
           as="button"
           basic={true}
@@ -70,14 +69,14 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "host",
+        "nodeType": "function",
         "props": Object {
-          "children": Array [],
-          "className": "ingredients-holder",
+          "ingredients": undefined,
+          "onRemoveIngredient": [Function],
         },
         "ref": null,
-        "rendered": Array [],
-        "type": "div",
+        "rendered": null,
+        "type": [Function],
       },
       Object {
         "instance": null,
@@ -110,11 +109,10 @@ ShallowWrapper {
           <SearchForm
             onAddIngredient={[Function]}
 />,
-          <div
-            className="ingredients-holder"
->
-            
-</div>,
+          <IngredientHolder
+            ingredients={undefined}
+            onRemoveIngredient={[Function]}
+/>,
           <Button
             as="button"
             basic={true}
@@ -156,14 +154,206 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "function",
           "props": Object {
-            "children": Array [],
-            "className": "ingredients-holder",
+            "ingredients": undefined,
+            "onRemoveIngredient": [Function],
           },
           "ref": null,
-          "rendered": Array [],
-          "type": "div",
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "as": "button",
+            "basic": true,
+            "children": "Search",
+            "circular": true,
+            "fluid": true,
+          },
+          "ref": null,
+          "rendered": "Search",
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Search.js should match its empty snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Search />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h3>
+          Add your ingredients
+</h3>,
+        <SearchForm
+          onAddIngredient={[Function]}
+/>,
+        <IngredientHolder
+          ingredients={undefined}
+          onRemoveIngredient={[Function]}
+/>,
+        <Button
+          as="button"
+          basic={true}
+          circular={true}
+          fluid={true}
+>
+          Search
+</Button>,
+      ],
+      "className": "search-container",
+      "style": Object {
+        "backgroundImage": "url(cocktail-background.jpg)",
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Add your ingredients",
+        },
+        "ref": null,
+        "rendered": "Add your ingredients",
+        "type": "h3",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "onAddIngredient": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "ingredients": undefined,
+          "onRemoveIngredient": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "as": "button",
+          "basic": true,
+          "children": "Search",
+          "circular": true,
+          "fluid": true,
+        },
+        "ref": null,
+        "rendered": "Search",
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h3>
+            Add your ingredients
+</h3>,
+          <SearchForm
+            onAddIngredient={[Function]}
+/>,
+          <IngredientHolder
+            ingredients={undefined}
+            onRemoveIngredient={[Function]}
+/>,
+          <Button
+            as="button"
+            basic={true}
+            circular={true}
+            fluid={true}
+>
+            Search
+</Button>,
+        ],
+        "className": "search-container",
+        "style": Object {
+          "backgroundImage": "url(cocktail-background.jpg)",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Add your ingredients",
+          },
+          "ref": null,
+          "rendered": "Add your ingredients",
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "onAddIngredient": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "ingredients": undefined,
+            "onRemoveIngredient": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
         },
         Object {
           "instance": null,

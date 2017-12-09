@@ -1,20 +1,19 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Button, Label, Icon } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import * as cocktailActionCreators from '../../redux/cocktails';
 
 // local imports
 import SearchForm from './SearchForm';
+import IngredientHolder from './IngredientHolder';
 
 // styles
 import './Search.css';
 import background from '../../helpers/img/cocktail-background.jpg';
 
-// label colors
-const colors = ['red', 'orange', 'yellow', 'olive', 'green', 'pink'];
-
-class Search extends React.Component {
+export class Search extends React.Component {
+  'use strict';
   addIngredient = val => {
     /* No dublicate ingredients */
     if (this.props.ingredients.includes(val)) {
@@ -42,22 +41,10 @@ class Search extends React.Component {
       >
         <h3>Add your ingredients</h3>
         <SearchForm onAddIngredient={this.addIngredient} />
-        <div className="ingredients-holder">
-          {ingredients.map((ingredient, i) => (
-            <Label
-              color={colors[i % colors.length]}
-              size="tiny"
-              key={i}
-              value={ingredient}
-            >
-              {ingredient}
-              <Icon
-                name="delete"
-                onClick={e => this.removeIngredient(ingredient)}
-              />
-            </Label>
-          ))}
-        </div>
+        <IngredientHolder
+          ingredients={ingredients}
+          onRemoveIngredient={this.removeIngredient}
+        />
         <Button basic fluid circular>
           Search
         </Button>
