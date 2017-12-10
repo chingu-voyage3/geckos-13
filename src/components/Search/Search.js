@@ -1,8 +1,11 @@
+'use strict';
+
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Button } from 'semantic-ui-react';
 import * as cocktailActionCreators from '../../redux/cocktails';
+import * as ingredientsActionCreators from '../../redux/ingredients';
 
 // local imports
 import SearchForm from './SearchForm';
@@ -13,15 +16,14 @@ import './Search.css';
 import background from '../../helpers/img/cocktail-background.jpg';
 
 export class Search extends React.Component {
-  'use strict';
-  addIngredient = val => {
+  onAddIngredient = val => {
     /* No dublicate ingredients */
     if (this.props.ingredients.includes(val)) {
       return;
     }
 
     // no empty strings
-    if (val.trim(' ') === '') {
+    if (val.trim(' ') === '' || val === '') {
       return;
     }
 
@@ -40,7 +42,7 @@ export class Search extends React.Component {
         style={{ backgroundImage: `url(${background})` }}
       >
         <h3>Add your ingredients</h3>
-        <SearchForm onAddIngredient={this.addIngredient} />
+        <SearchForm onAddIngredient={this.OnAddIngredient} />
         <IngredientHolder
           ingredients={ingredients}
           onRemoveIngredient={this.removeIngredient}
@@ -53,12 +55,17 @@ export class Search extends React.Component {
   }
 }
 
-const mapStateToProps = (state, props) => ({
-  cocktails: state.cocktails.cocktails,
-  ingredients: state.cocktails.ingredients,
-});
+const mapStateToProps = ({ cocktails, ingredients }, props) => {
+  return {
+    cocktails: cocktails.cocktails,
+    ingredients: ingredients.ingredients,
+  };
+};
 
 const mapDispatchToProps = (dispatch, props) =>
-  bindActionCreators(cocktailActionCreators, dispatch);
+  bindActionCreators(
+    { ...cocktailActionCreators, ...ingredientsActionCreators },
+    dispatch
+  );
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

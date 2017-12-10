@@ -19,10 +19,13 @@ SearchForm.js
 import React from 'react';
 import ConnectedSearch, { Search } from './Search';
 import SearchForm from './SearchForm';
+import IngredientHolder from './IngredientHolder';
+import cocktails from '../../redux/cocktails';
+import { Label, Icon } from 'semantic-ui-react';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
+import { Provider } from 'react-redux';
 import { createMockStore } from 'redux-test-utils';
 import configureStore from 'redux-mock-store';
-import { Provider } from 'react-redux';
 
 const shallowWithStore = (component, store) => {
   const context = {
@@ -61,6 +64,33 @@ describe('---------- Search.js connected component --------', () => {
   it('should create connected testable component', () => {
     expect(container).toBeDefined();
   });
+
+  it('should dispatch ADD_INGREDIENT action', () => {
+    expect(container).toBeDefined();
+    expect(
+      container
+        .dive()
+        .instance()
+        .props.addIngredient('apple')
+    ).toEqual({ type: 'ADD_INGREDIENT', ingredient: 'apple' });
+  });
+
+  it('should dispatch REMOVE_INGREDIENT action', () => {
+    expect(
+      container
+        .dive()
+        .instance()
+        .props.removeIngredient('apple')
+    ).toEqual({ type: 'REMOVE_INGREDIENT', id: 'apple' });
+  });
+
+  it('should have ingredient array as prop', () => {
+    // It works to call the functions on the props, but the cocktails and ingredients arrays are always undefined.
+    console.log(container.dive().instance().props);
+    expect(container.dive().instance().props).toEqual(initialState.ingredients);
+  });
+
+  it('should have cocktails array as prop', () => {});
 });
 
 describe('--------- Search.js connected component with provider', () => {
@@ -86,6 +116,100 @@ describe('--------- Search.js connected component with provider', () => {
   });
 });
 
+describe('------------ IngredientHolder.js ----------------', () => {
+  const ingredients = ['apple', 'bananas'];
+  let onRemoveIngredient = jest.fn();
+  it('should match its empty snapshot', () => {
+    const component = shallow(
+      <IngredientHolder
+        ingredients={ingredients}
+        onRemoveIngredient={onRemoveIngredient}
+      />
+    );
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should render two labels', () => {
+    const component = shallow(
+      <IngredientHolder
+        ingredients={ingredients}
+        onRemoveIngredient={onRemoveIngredient}
+      />
+    );
+
+    const labels = component.find(Label);
+    expect(labels.length).toBe(2);
+  });
+
+  it('should have props ingredients and onRemoveIngredient"', () => {
+    const component = mount(
+      <IngredientHolder
+        ingredients={ingredients}
+        onRemoveIngredient={onRemoveIngredient}
+      />
+    );
+
+    expect(component.prop('ingredients')).toEqual(ingredients);
+    expect(component.prop('onRemoveIngredient')).toBeDefined();
+  });
+
+  it('it should have labels with texts "apple" and "bananas""', () => {
+    const component = mount(
+      <IngredientHolder
+        ingredients={ingredients}
+        onRemoveIngredient={onRemoveIngredient}
+      />
+    );
+
+    expect(
+      component
+        .find(Label)
+        .at(0)
+        .text()
+    ).toBe('apple');
+
+    expect(
+      component
+        .find(Label)
+        .at(1)
+        .text()
+    ).toBe('bananas');
+  });
+
+  it('it should have labels with one Icon"', () => {
+    const component = mount(
+      <IngredientHolder
+        ingredients={ingredients}
+        onRemoveIngredient={onRemoveIngredient}
+      />
+    );
+
+    expect(
+      component
+        .find(Label)
+        .at(0)
+        .find(Icon).length
+    ).toBe(1);
+  });
+
+  it('it should call onRemoveIngredient when icon is clicked"', () => {
+    let onRemoveIngredient = jest.fn();
+    const component = mount(
+      <IngredientHolder
+        ingredients={ingredients}
+        onRemoveIngredient={onRemoveIngredient}
+      />
+    );
+
+    component
+      .find(Label)
+      .at(0)
+      .find(Icon)
+      .simulate('click');
+
+    expect(onRemoveIngredient).toHaveBeenCalled();
+  });
+});
 /*
 
 it('Should add ingredient to state', () => {

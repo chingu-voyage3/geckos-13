@@ -22,7 +22,7 @@ ShallowWrapper {
           Add your ingredients
 </h3>,
         <SearchForm
-          onAddIngredient={[Function]}
+          onAddIngredient={undefined}
 />,
         <IngredientHolder
           ingredients={undefined}
@@ -60,7 +60,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "onAddIngredient": [Function],
+          "onAddIngredient": undefined,
         },
         "ref": null,
         "rendered": null,
@@ -107,7 +107,7 @@ ShallowWrapper {
             Add your ingredients
 </h3>,
           <SearchForm
-            onAddIngredient={[Function]}
+            onAddIngredient={undefined}
 />,
           <IngredientHolder
             ingredients={undefined}
@@ -145,7 +145,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "onAddIngredient": [Function],
+            "onAddIngredient": undefined,
           },
           "ref": null,
           "rendered": null,
@@ -192,11 +192,19 @@ ShallowWrapper {
 }
 `;
 
-exports[`Search.js should match its empty snapshot 1`] = `
+exports[`------------ IngredientHolder.js ---------------- should match its empty snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Search />,
+  Symbol(enzyme.__unrendered__): <IngredientHolder
+    ingredients={
+        Array [
+            "apple",
+            "bananas",
+          ]
+    }
+    onRemoveIngredient={[Function]}
+/>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -210,79 +218,105 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <h3>
-          Add your ingredients
-</h3>,
-        <SearchForm
-          onAddIngredient={[Function]}
-/>,
-        <IngredientHolder
-          ingredients={undefined}
-          onRemoveIngredient={[Function]}
-/>,
-        <Button
-          as="button"
-          basic={true}
-          circular={true}
-          fluid={true}
+        <Label
+          color="red"
+          size="tiny"
+          value="apple"
 >
-          Search
-</Button>,
+          apple
+          <Icon
+                    as="i"
+                    name="delete"
+                    onClick={[Function]}
+          />
+</Label>,
+        <Label
+          color="orange"
+          size="tiny"
+          value="bananas"
+>
+          bananas
+          <Icon
+                    as="i"
+                    name="delete"
+                    onClick={[Function]}
+          />
+</Label>,
       ],
-      "className": "search-container",
-      "style": Object {
-        "backgroundImage": "url(cocktail-background.jpg)",
-      },
+      "className": "ingredients-holder",
     },
     "ref": null,
     "rendered": Array [
       Object {
         "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Add your ingredients",
-        },
-        "ref": null,
-        "rendered": "Add your ingredients",
-        "type": "h3",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
+        "key": "0",
         "nodeType": "class",
         "props": Object {
-          "onAddIngredient": [Function],
+          "children": Array [
+            "apple",
+            <Icon
+              as="i"
+              name="delete"
+              onClick={[Function]}
+/>,
+          ],
+          "color": "red",
+          "size": "tiny",
+          "value": "apple",
         },
         "ref": null,
-        "rendered": null,
+        "rendered": Array [
+          "apple",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "as": "i",
+              "name": "delete",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
         "type": [Function],
       },
       Object {
         "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {
-          "ingredients": undefined,
-          "onRemoveIngredient": [Function],
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
+        "key": "1",
         "nodeType": "class",
         "props": Object {
-          "as": "button",
-          "basic": true,
-          "children": "Search",
-          "circular": true,
-          "fluid": true,
+          "children": Array [
+            "bananas",
+            <Icon
+              as="i"
+              name="delete"
+              onClick={[Function]}
+/>,
+          ],
+          "color": "orange",
+          "size": "tiny",
+          "value": "bananas",
         },
         "ref": null,
-        "rendered": "Search",
+        "rendered": Array [
+          "bananas",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "as": "i",
+              "name": "delete",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
         "type": [Function],
       },
     ],
@@ -295,79 +329,105 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <h3>
-            Add your ingredients
-</h3>,
-          <SearchForm
-            onAddIngredient={[Function]}
-/>,
-          <IngredientHolder
-            ingredients={undefined}
-            onRemoveIngredient={[Function]}
-/>,
-          <Button
-            as="button"
-            basic={true}
-            circular={true}
-            fluid={true}
+          <Label
+            color="red"
+            size="tiny"
+            value="apple"
 >
-            Search
-</Button>,
+            apple
+            <Icon
+                        as="i"
+                        name="delete"
+                        onClick={[Function]}
+            />
+</Label>,
+          <Label
+            color="orange"
+            size="tiny"
+            value="bananas"
+>
+            bananas
+            <Icon
+                        as="i"
+                        name="delete"
+                        onClick={[Function]}
+            />
+</Label>,
         ],
-        "className": "search-container",
-        "style": Object {
-          "backgroundImage": "url(cocktail-background.jpg)",
-        },
+        "className": "ingredients-holder",
       },
       "ref": null,
       "rendered": Array [
         Object {
           "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Add your ingredients",
-          },
-          "ref": null,
-          "rendered": "Add your ingredients",
-          "type": "h3",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
+          "key": "0",
           "nodeType": "class",
           "props": Object {
-            "onAddIngredient": [Function],
+            "children": Array [
+              "apple",
+              <Icon
+                as="i"
+                name="delete"
+                onClick={[Function]}
+/>,
+            ],
+            "color": "red",
+            "size": "tiny",
+            "value": "apple",
           },
           "ref": null,
-          "rendered": null,
+          "rendered": Array [
+            "apple",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "as": "i",
+                "name": "delete",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
           "type": [Function],
         },
         Object {
           "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "ingredients": undefined,
-            "onRemoveIngredient": [Function],
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
+          "key": "1",
           "nodeType": "class",
           "props": Object {
-            "as": "button",
-            "basic": true,
-            "children": "Search",
-            "circular": true,
-            "fluid": true,
+            "children": Array [
+              "bananas",
+              <Icon
+                as="i"
+                name="delete"
+                onClick={[Function]}
+/>,
+            ],
+            "color": "orange",
+            "size": "tiny",
+            "value": "bananas",
           },
           "ref": null,
-          "rendered": "Search",
+          "rendered": Array [
+            "bananas",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "as": "i",
+                "name": "delete",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
           "type": [Function],
         },
       ],
