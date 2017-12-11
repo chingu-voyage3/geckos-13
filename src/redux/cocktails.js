@@ -1,8 +1,11 @@
+import { fetchCocktails } from '../helpers/api';
+
+// Constants
 export const FETCHING_COCKTAILS = 'FETCHING_COCKTAILS';
 export const FETCHING_COCKTAILS_SUCCESS = 'FETCHING_COCKTAILS_SUCCESS';
 export const FETCHING_COCKTAILS_FAILURE = 'FETCHING_COCKTAILS_FAILURE';
 
-export const fetchCocktails = () => ({
+export const fetchingCocktails = () => ({
   type: FETCHING_COCKTAILS,
 });
 
@@ -11,20 +14,41 @@ export const fetchCocktailsSuccess = cocktails => ({
   cocktails,
 });
 
-export const fetchCocktailsFailure = err => ({
+export const fetchCocktailsFailure = error => ({
   type: FETCHING_COCKTAILS_FAILURE,
-  err,
+  error,
 });
+
+export const fetchAndHandleCocktails = () => dispatch => {
+  dispatch(fetchingCocktails());
+  const c = fetchCocktails();
+  console.log(c);
+  dispatch(fetchCocktailsSuccess(c));
+};
 
 const initialState = {
   cocktails: [],
+  fetching: false,
+  error: '',
 };
 
 const cocktails = (state = initialState, action) => {
   switch (action.type) {
     case FETCHING_COCKTAILS:
+      return {
+        ...state,
+        fetching: true,
+      };
     case FETCHING_COCKTAILS_SUCCESS:
+      return {
+        fetching: false,
+        cocktails: action.cocktails,
+      };
     case FETCHING_COCKTAILS_FAILURE:
+      return {
+        fetching: false,
+        error: action.error,
+      };
     default:
       return state;
   }

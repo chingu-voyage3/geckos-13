@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import * as reducers from './redux';
 
 // styles
@@ -17,13 +18,13 @@ import registerServiceWorker from './registerServiceWorker';
 const store = createStore(
   combineReducers(reducers),
   compose(
+    applyMiddleware(thunk),
     window.__REDUX_DEVTOOLS_EXTENSION__
       ? window.__REDUX_DEVTOOLS_EXTENSION__()
       : f => f
   )
 );
 
-console.log(store.getState());
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

@@ -1,5 +1,6 @@
 .search-container {
-  height: 500px;
+  min-height: 400px;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -9,6 +10,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-color: green;
+  flex-grow: 1;
 }
 
 .search-container h3 {
@@ -23,12 +25,29 @@
 }
 
 .ui.basic.button,
-.ui.basic.buttons .button {
+.ui.basic.buttons .button,
+.ui.basic.button:focus,
+.ui.basic.buttons .button:focus {
   width: 30%;
   margin: 0 auto !important;
   border: 1px solid green;
   font-size: 15px;
   color: green !important;
+  font-family: 'Abel', sans-serif;
+  background: transparent !important;
+}
+
+.ui.basic.button:hover,
+.ui.basic.buttons .button:hover,
+.ui.basic.button:active,
+.ui.basic.buttons .button:active {
+  width: 30%;
+  margin: 0 auto !important;
+  border: 1px solid green;
+  font-size: 15px;
+  color: green !important;
+  font-family: 'Abel', sans-serif;
+  background: transparent !important;
 }
 
 .ui.label {

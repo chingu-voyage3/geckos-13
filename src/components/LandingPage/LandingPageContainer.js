@@ -2,7 +2,7 @@ import React from 'react';
 import './LandingPage.css';
 import { Link } from 'react-router-dom';
 
-class LandingPage extends React.Component {
+class LandingPageContainer extends React.Component {
   render() {
     return (
       <div className="landing-container">
@@ -21,4 +21,4 @@ class LandingPage extends React.Component {
   }
 }
 
-export default LandingPage;
+export default LandingPageContainer;

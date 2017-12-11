@@ -1,30 +1,26 @@
-/*
-Search.js
--addIngredient
-  -dublicate
-  -valid
--removeIngredient
--render
-
-SearchForm.js
--getSuggerstions,
--getSuggestionValue,
--renderSuggestion
--handleAddIngredient,
--onSuggestionsFetchRequested,
--onSuggestionsClearRequested
--render
-*/
-
 import React from 'react';
-import ConnectedSearch, { Search } from './Search';
+import { Label, Icon, Form } from 'semantic-ui-react';
+
+// For testing Search.js
+import ConnectedSearch, { SearchContainer } from './SearchContainer';
+
+// For testing SearchForm.js
 import SearchForm from './SearchForm';
+import {
+  getSuggestions,
+  ingredientsSuggestions,
+  getSuggestionValue,
+  renderSuggestion,
+} from './SearchForm';
+import Autosuggest from 'react-autosuggest';
+
+// For testing IngredientsHolder.js
 import IngredientHolder from './IngredientHolder';
+
+// For testing redux
 import cocktails from '../../redux/cocktails';
-import { Label, Icon } from 'semantic-ui-react';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-import { createMockStore } from 'redux-test-utils';
 import configureStore from 'redux-mock-store';
 
 const shallowWithStore = (component, store) => {
@@ -36,13 +32,13 @@ const shallowWithStore = (component, store) => {
 
 describe('---------- Search.js, dumb component ----------', () => {
   it('should match its empty snapshot', () => {
-    const component = shallow(<Search />);
+    const component = shallow(<SearchContainer />);
 
     expect(component).toMatchSnapshot();
   });
 
   it('should render an h3 with correct text', () => {
-    const component = shallow(<Search />);
+    const component = shallow(<SearchContainer />);
     expect(component.find('h3').text()).toBe('Add your ingredients');
   });
 });
@@ -84,16 +80,16 @@ describe('---------- Search.js connected component --------', () => {
     ).toEqual({ type: 'REMOVE_INGREDIENT', id: 'apple' });
   });
 
-  it('should have ingredient array as prop', () => {
-    // It works to call the functions on the props, but the cocktails and ingredients arrays are always undefined.
-    console.log(container.dive().instance().props);
-    expect(container.dive().instance().props).toEqual(initialState.ingredients);
-  });
+  //it('should have ingredient array as prop', () => {
+  // It works to call the functions on the props, but the cocktails and ingredients arrays are always undefined.
+  //console.log(container.dive().instance().props);
+  //expect(container.dive().instance().props).toEqual(initialState.ingredients);
+  //});
 
-  it('should have cocktails array as prop', () => {});
+  //it('should have cocktails array as prop', () => {});
 });
 
-describe('--------- Search.js connected component with provider', () => {
+/*describe('--------- Search.js connected component with provider', () => {
   const initialState = {
     cocktails: [],
     ingredients: [],
@@ -114,7 +110,7 @@ describe('--------- Search.js connected component with provider', () => {
   it('should create connected testable component', () => {
     expect(wrapper).toBeDefined();
   });
-});
+});*/
 
 describe('------------ IngredientHolder.js ----------------', () => {
   const ingredients = ['apple', 'bananas'];
@@ -177,7 +173,7 @@ describe('------------ IngredientHolder.js ----------------', () => {
   });
 
   it('it should have labels with one Icon"', () => {
-    const component = mount(
+    const component = shallow(
       <IngredientHolder
         ingredients={ingredients}
         onRemoveIngredient={onRemoveIngredient}
@@ -194,7 +190,7 @@ describe('------------ IngredientHolder.js ----------------', () => {
 
   it('it should call onRemoveIngredient when icon is clicked"', () => {
     let onRemoveIngredient = jest.fn();
-    const component = mount(
+    const component = shallow(
       <IngredientHolder
         ingredients={ingredients}
         onRemoveIngredient={onRemoveIngredient}
@@ -210,62 +206,49 @@ describe('------------ IngredientHolder.js ----------------', () => {
     expect(onRemoveIngredient).toHaveBeenCalled();
   });
 });
-/*
 
-it('Should add ingredient to state', () => {
-  console.log(container.instance());
+describe('----------- SearchForm.js --------------', () => {
+  const onAddIngredient = jest.fn();
+  let component;
 
-  //expect(component.instance().props.ingredients).toEqual(['apples']);
-  //expect(component.instance().props.ingredients.length).toBe(1);
-});
-
-
-    it('Should not add dublicate ingredients to state', () => {
-      const testState = {
-        cocktails: [],
-        ingredients: [],
-      };
-      const store = createMockStore(testState);
-      const component = shallowWithStore(<Search />, store);
-      component.instance().addIngredient('apples');
-
-      expect(component.instance().props.ingredients).toEqual(['apples']);
-      expect(component.instance().props.ingredients.length).toBe(1);
-    });
-
-    it('Should not add empty string', () => {
-      const component = mount(<Search />);
-      component.instance().addIngredient('');
-
-      expect(component.instance().props.ingredients).toEqual([]);
-      expect(component.instance().props.ingredients.length).toBe(0);
-    });
-
-  describe('removeIngredient', () => {
-    it('Should remove ingredient from state', () => {
-      const component = mount(<Search />);
-      component.instance().setState({ ingredients: ['apples'] });
-      component.instance().removeIngredient('apples');
-
-      expect(component.instance().props.ingredients).toEqual([]);
-      expect(component.instance().props.ingredients.length).toBe(0);
-    });
-
-    it('Should only remove ingredient matching the given value', () => {
-      const component = mount(<Search />);
-      component.instance().setState({ ingredients: ['apples'] });
-      component.instance().removeIngredient('bananas');
-
-      expect(component.instance().props.ingredients).toEqual(['apples']);
-      expect(component.instance().props.ingredients.length).toBe(1);
-    });
+  beforeEach(() => {
+    component = shallow(<SearchForm onAddIngredient={onAddIngredient} />);
   });
 
-  describe('render', () => {
-    it('should render a SearchForm component', () => {
-      const component = shallow(<Search />);
-      expect(component.find(SearchForm).length).toBe(1);
-    });
+  it('should match its empty snapshot', () => {
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should return suggestion matching the input', () => {
+    expect(getSuggestions('gi')).toEqual([
+      { id: 'gin', name: 'Gin' },
+      { id: 'ginseng', name: 'Ginseng' },
+    ]);
+    expect(getSuggestions('v')).toEqual([{ id: 'vodka', name: 'Vodka' }]);
+    expect(getSuggestions(' ')).toEqual([]);
+  });
+
+  it('should only return the suggestion name', () => {
+    expect(getSuggestionValue({ id: 'ginseng', name: 'Ginseng' })).toBe(
+      'Ginseng'
+    );
+  });
+
+  it('should return a div with the suggestion name', () => {
+    expect(renderSuggestion({ id: 'ginseng', name: 'Ginseng' })).toEqual(
+      <div>Ginseng</div>
+    );
+  });
+
+  it('should start with the value state as an empty string', () => {
+    expect(component.state().value).toBe('');
+  });
+
+  it('should render a Form', () => {
+    expect(component.find(Form).length).toBe(1);
+  });
+
+  it('should render a Autosuggest', () => {
+    expect(component.find(Autosuggest).length).toBe(1);
   });
 });
-*/

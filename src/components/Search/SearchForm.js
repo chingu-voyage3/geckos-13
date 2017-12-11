@@ -6,7 +6,7 @@ import { func } from 'prop-types';
 // styles
 import './Search.css';
 
-const ingredientsSuggestions = [
+export const ingredientsSuggestions = [
   {
     name: 'Vodka',
     id: 'vodka',
@@ -19,12 +19,16 @@ const ingredientsSuggestions = [
     name: 'Rum',
     id: 'rum',
   },
+  {
+    name: 'Ginseng',
+    id: 'ginseng',
+  },
 ];
 
 /* calculate suggestions for any given input value.
    return suggestions that start with the same letters as the input value
 */
-const getSuggestions = value => {
+export const getSuggestions = value => {
   const inputValue = value.trim().toLowerCase();
   const inputLength = inputValue.length;
 
@@ -38,10 +42,10 @@ const getSuggestions = value => {
 /* When a suggestion is clicked, populate the input with
    the clicked value
  */
-const getSuggestionValue = suggestion => suggestion.name;
+export const getSuggestionValue = suggestion => suggestion.name;
 
 // Use your imagination to render suggestions.
-const renderSuggestion = suggestion => <div>{suggestion.name}</div>;
+export const renderSuggestion = suggestion => <div>{suggestion.name}</div>;
 
 class SearchForm extends React.Component {
   state = {

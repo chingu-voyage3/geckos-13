@@ -2,37 +2,43 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Abel', sans-serif;
   text-align: center;
   color: pink;
 }
 
 a,
 a:hover {
+  font-family: 'Abel', sans-serif;
   text-decoration: none;
-  color: #fff;
+  color: pink;
 }
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: 'Amatic SC', cursive;
 }
 
 input::-webkit-input-placeholder {
+  font-family: 'Abel', sans-serif;
   color: red !important;
 }
 
 input:-moz-placeholder {
   /* Firefox 18- */
+  font-family: 'Abel', sans-serif;
   color: red !important;
 }
 
 input::-moz-placeholder {
   /* Firefox 19+ */
+  font-family: 'Abel', sans-serif;
   color: red !important;
 }
 
 input:-ms-input-placeholder {
+  font-family: 'Abel', sans-serif;
   color: red !important;
 }

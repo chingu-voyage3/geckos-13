@@ -4,7 +4,7 @@ exports[`---------- Search.js, dumb component ---------- should match its empty 
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Search />,
+  Symbol(enzyme.__unrendered__): <SearchContainer />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -22,7 +22,7 @@ ShallowWrapper {
           Add your ingredients
 </h3>,
         <SearchForm
-          onAddIngredient={undefined}
+          onAddIngredient={[Function]}
 />,
         <IngredientHolder
           ingredients={undefined}
@@ -60,7 +60,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "onAddIngredient": undefined,
+          "onAddIngredient": [Function],
         },
         "ref": null,
         "rendered": null,
@@ -107,7 +107,7 @@ ShallowWrapper {
             Add your ingredients
 </h3>,
           <SearchForm
-            onAddIngredient={undefined}
+            onAddIngredient={[Function]}
 />,
           <IngredientHolder
             ingredients={undefined}
@@ -145,7 +145,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "onAddIngredient": undefined,
+            "onAddIngredient": [Function],
           },
           "ref": null,
           "rendered": null,
@@ -180,6 +180,222 @@ ShallowWrapper {
         },
       ],
       "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`----------- SearchForm.js -------------- should match its empty snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SearchForm
+    onAddIngredient={[Function]}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "as": "form",
+      "children": <Autosuggest
+        alwaysRenderSuggestions={false}
+        focusInputOnSuggestionClick={true}
+        getSuggestionValue={[Function]}
+        highlightFirstSuggestion={false}
+        id="1"
+        inputProps={
+                Object {
+                        "onChange": [Function],
+                        "onKeyPress": [Function],
+                        "placeholder": "Enter you ingredients and hit enter",
+                        "value": "",
+                      }
+        }
+        multiSection={false}
+        onSuggestionsClearRequested={[Function]}
+        onSuggestionsFetchRequested={[Function]}
+        renderSuggestion={[Function]}
+        renderSuggestionsContainer={[Function]}
+        shouldRenderSuggestions={[Function]}
+        suggestions={Array []}
+        theme={
+                Object {
+                        "container": "react-autosuggest__container",
+                        "containerOpen": "react-autosuggest__container--open",
+                        "input": "react-autosuggest__input",
+                        "inputFocused": "react-autosuggest__input--focused",
+                        "inputOpen": "react-autosuggest__input--open",
+                        "sectionContainer": "react-autosuggest__section-container",
+                        "sectionContainerFirst": "react-autosuggest__section-container--first",
+                        "sectionTitle": "react-autosuggest__section-title",
+                        "suggestion": "react-autosuggest__suggestion",
+                        "suggestionFirst": "react-autosuggest__suggestion--first",
+                        "suggestionHighlighted": "react-autosuggest__suggestion--highlighted",
+                        "suggestionsContainer": "react-autosuggest__suggestions-container",
+                        "suggestionsContainerOpen": "react-autosuggest__suggestions-container--open",
+                        "suggestionsList": "react-autosuggest__suggestions-list",
+                      }
+        }
+/>,
+      "size": "large",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "alwaysRenderSuggestions": false,
+        "focusInputOnSuggestionClick": true,
+        "getSuggestionValue": [Function],
+        "highlightFirstSuggestion": false,
+        "id": "1",
+        "inputProps": Object {
+          "onChange": [Function],
+          "onKeyPress": [Function],
+          "placeholder": "Enter you ingredients and hit enter",
+          "value": "",
+        },
+        "multiSection": false,
+        "onSuggestionsClearRequested": [Function],
+        "onSuggestionsFetchRequested": [Function],
+        "renderSuggestion": [Function],
+        "renderSuggestionsContainer": [Function],
+        "shouldRenderSuggestions": [Function],
+        "suggestions": Array [],
+        "theme": Object {
+          "container": "react-autosuggest__container",
+          "containerOpen": "react-autosuggest__container--open",
+          "input": "react-autosuggest__input",
+          "inputFocused": "react-autosuggest__input--focused",
+          "inputOpen": "react-autosuggest__input--open",
+          "sectionContainer": "react-autosuggest__section-container",
+          "sectionContainerFirst": "react-autosuggest__section-container--first",
+          "sectionTitle": "react-autosuggest__section-title",
+          "suggestion": "react-autosuggest__suggestion",
+          "suggestionFirst": "react-autosuggest__suggestion--first",
+          "suggestionHighlighted": "react-autosuggest__suggestion--highlighted",
+          "suggestionsContainer": "react-autosuggest__suggestions-container",
+          "suggestionsContainerOpen": "react-autosuggest__suggestions-container--open",
+          "suggestionsList": "react-autosuggest__suggestions-list",
+        },
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "as": "form",
+        "children": <Autosuggest
+          alwaysRenderSuggestions={false}
+          focusInputOnSuggestionClick={true}
+          getSuggestionValue={[Function]}
+          highlightFirstSuggestion={false}
+          id="1"
+          inputProps={
+                    Object {
+                              "onChange": [Function],
+                              "onKeyPress": [Function],
+                              "placeholder": "Enter you ingredients and hit enter",
+                              "value": "",
+                            }
+          }
+          multiSection={false}
+          onSuggestionsClearRequested={[Function]}
+          onSuggestionsFetchRequested={[Function]}
+          renderSuggestion={[Function]}
+          renderSuggestionsContainer={[Function]}
+          shouldRenderSuggestions={[Function]}
+          suggestions={Array []}
+          theme={
+                    Object {
+                              "container": "react-autosuggest__container",
+                              "containerOpen": "react-autosuggest__container--open",
+                              "input": "react-autosuggest__input",
+                              "inputFocused": "react-autosuggest__input--focused",
+                              "inputOpen": "react-autosuggest__input--open",
+                              "sectionContainer": "react-autosuggest__section-container",
+                              "sectionContainerFirst": "react-autosuggest__section-container--first",
+                              "sectionTitle": "react-autosuggest__section-title",
+                              "suggestion": "react-autosuggest__suggestion",
+                              "suggestionFirst": "react-autosuggest__suggestion--first",
+                              "suggestionHighlighted": "react-autosuggest__suggestion--highlighted",
+                              "suggestionsContainer": "react-autosuggest__suggestions-container",
+                              "suggestionsContainerOpen": "react-autosuggest__suggestions-container--open",
+                              "suggestionsList": "react-autosuggest__suggestions-list",
+                            }
+          }
+/>,
+        "size": "large",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "alwaysRenderSuggestions": false,
+          "focusInputOnSuggestionClick": true,
+          "getSuggestionValue": [Function],
+          "highlightFirstSuggestion": false,
+          "id": "1",
+          "inputProps": Object {
+            "onChange": [Function],
+            "onKeyPress": [Function],
+            "placeholder": "Enter you ingredients and hit enter",
+            "value": "",
+          },
+          "multiSection": false,
+          "onSuggestionsClearRequested": [Function],
+          "onSuggestionsFetchRequested": [Function],
+          "renderSuggestion": [Function],
+          "renderSuggestionsContainer": [Function],
+          "shouldRenderSuggestions": [Function],
+          "suggestions": Array [],
+          "theme": Object {
+            "container": "react-autosuggest__container",
+            "containerOpen": "react-autosuggest__container--open",
+            "input": "react-autosuggest__input",
+            "inputFocused": "react-autosuggest__input--focused",
+            "inputOpen": "react-autosuggest__input--open",
+            "sectionContainer": "react-autosuggest__section-container",
+            "sectionContainerFirst": "react-autosuggest__section-container--first",
+            "sectionTitle": "react-autosuggest__section-title",
+            "suggestion": "react-autosuggest__suggestion",
+            "suggestionFirst": "react-autosuggest__suggestion--first",
+            "suggestionHighlighted": "react-autosuggest__suggestion--highlighted",
+            "suggestionsContainer": "react-autosuggest__suggestions-container",
+            "suggestionsContainerOpen": "react-autosuggest__suggestions-container--open",
+            "suggestionsList": "react-autosuggest__suggestions-list",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {

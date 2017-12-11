@@ -15,8 +15,8 @@ import IngredientHolder from './IngredientHolder';
 import './Search.css';
 import background from '../../helpers/img/cocktail-background.jpg';
 
-export class Search extends React.Component {
-  onAddIngredient = val => {
+export class SearchContainer extends React.Component {
+  addIngredient = val => {
     /* No dublicate ingredients */
     if (this.props.ingredients.includes(val)) {
       return;
@@ -35,6 +35,7 @@ export class Search extends React.Component {
   };
 
   render() {
+    console.log(this.props);
     const { ingredients } = this.props;
     return (
       <div
@@ -42,12 +43,17 @@ export class Search extends React.Component {
         style={{ backgroundImage: `url(${background})` }}
       >
         <h3>Add your ingredients</h3>
-        <SearchForm onAddIngredient={this.OnAddIngredient} />
+        <SearchForm onAddIngredient={this.addIngredient} />
         <IngredientHolder
           ingredients={ingredients}
           onRemoveIngredient={this.removeIngredient}
         />
-        <Button basic fluid circular>
+        <Button
+          basic
+          fluid
+          circular
+          onClick={this.props.fetchAndHandleCocktails}
+        >
           Search
         </Button>
       </div>
@@ -55,12 +61,10 @@ export class Search extends React.Component {
   }
 }
 
-const mapStateToProps = ({ cocktails, ingredients }, props) => {
-  return {
-    cocktails: cocktails.cocktails,
-    ingredients: ingredients.ingredients,
-  };
-};
+const mapStateToProps = ({ cocktails, ingredients }, props) => ({
+  cocktails: cocktails.cocktails,
+  ingredients: ingredients.ingredients,
+});
 
 const mapDispatchToProps = (dispatch, props) =>
   bindActionCreators(
@@ -68,4 +72,4 @@ const mapDispatchToProps = (dispatch, props) =>
     dispatch
   );
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchContainer);
