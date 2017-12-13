@@ -21,9 +21,9 @@ export const fetchCocktailsFailure = error => ({
 
 export const fetchAndHandleCocktails = () => dispatch => {
   dispatch(fetchingCocktails());
-  const c = fetchCocktails();
-  console.log(c);
-  dispatch(fetchCocktailsSuccess(c));
+  const c = fetchCocktails().then(data =>
+    dispatch(fetchCocktailsSuccess(data.result))
+  );
 };
 
 const initialState = {
