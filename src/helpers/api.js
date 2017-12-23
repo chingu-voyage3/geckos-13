@@ -1,7 +1,7 @@
 import { cocktailThumbnailFactory } from '../helpers/helpers';
-import { data } from '../helpers/data';
+import { data, ingredients } from '../helpers/data';
 import { api } from './apiConfig';
 
-export const fetchCocktails = ingredients => {
-  return cocktailThumbnailFactory(data);
-};
+export const fetchCocktails = ingredients => cocktailThumbnailFactory(data);
+
+export const fetchIngredients = () => ingredients;

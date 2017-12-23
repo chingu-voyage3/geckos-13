@@ -1,12 +1,12 @@
-/* 
+/*
 Functions to construct valid api calls
 */
 
-/* 
+/*
 Factory functions to extract neccessary information from the results from api calls
 */
 export const cocktailThumbnailFactory = cocktailResult =>
-  cocktailResult.map(cocktail => getCocktailThumbnailInfo(cocktail));
+  cocktailResult.map(cocktail => getCocktailInfo(cocktail));
 
 const getCocktailThumbnailInfo = cocktail => ({
   id: cocktail.id,
@@ -24,15 +24,19 @@ const getCocktailInfo = cocktail => ({
   id: cocktail.id,
   name: cocktail.name,
   skill: cocktail.skill,
-  video: cocktail.video,
+  hasVideo: 'videos' in cocktail,
+  video: `http://assets.absolutdrinks.com/videos/${cocktail.id}.mp4`,
+  videoId: cocktail.videos[0].video,
   isAlcoholic: cocktail.isAlcoholic,
   isCarbonated: cocktail.isCarbonated,
   isHot: cocktail.isHot,
   servedIn: cocktail.servedIn,
-  ingredient: cocktail.ingredients,
+  ingredients: cocktail.ingredients,
   tools: cocktail.tools,
   description: cocktail.description,
   descriptionPlain: cocktail.descriptionPlain,
   tastes: cocktail.tastes,
-  img: `img/${cocktail.id}.png`,
+  img: `http://assets.absolutdrinks.com/drinks/transparent-background-white/${
+    cocktail.id
+  }.png`,
 });

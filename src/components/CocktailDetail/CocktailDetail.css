@@ -1,5 +1,52 @@
-.cocktail-detail-container {
-  height: 100vw;
-  width: 100vh;
+.cocktail-modal {
+  margin: 0 20px;
 }
 
+.cocktail-modal p {
+  margin: 0 5px;
+}
+
+.cocktail-modal .header {
+  font-size: 40px;
+  color: red;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.cocktail-modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+.cocktail-modal-content .row-1 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  color: black;
+  flex-wrap: wrap;
+}
+
+.cocktail-modal-content .ui.header {
+  text-align: left;
+}
+
+.cocktail-modal-content .image {
+  flex: 1 0;
+  margin-right: 40px;
+}
+
+.cocktail-modal-content .ingredients {
+  padding-top: 40px;
+  flex: 1 0;
+}
+
+.cocktail-modal-content .description {
+  padding-top: 40px;
+  flex: 1 0;
+}

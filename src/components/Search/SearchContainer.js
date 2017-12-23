@@ -35,7 +35,6 @@ export class SearchContainer extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     const { ingredients } = this.props;
     return (
       <div

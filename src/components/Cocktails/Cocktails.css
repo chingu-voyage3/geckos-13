@@ -2,6 +2,20 @@
   margin: 30px 0;
 }
 
+.ui.button.thumbnail-button,
+.ui.button.thumbnail-button:hover,
+.ui.button.thumbnail-button:focus,
+.ui.button.thumbnail-button:active {
+  background: transparent;
+  font-weight: normal;
+  transition: 0.2s ease;
+}
+
+.ui.button.thumbnail-button:hover {
+  transform: scale(1.05);
+  transition: 0.2s ease;
+}
+
 .cocktails-container h3 {
   font-family: 'Abel', sans-serif;
   text-align: left;
@@ -12,7 +26,7 @@
 .cocktails-container .cocktails {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .cocktail-thumbnail {
@@ -28,4 +42,10 @@
 .cocktail-thumbnail-info h4 {
   font-size: 30px;
   margin: 0;
+}
+
+@media (min-width: 600px) {
+  .cocktails-container .cocktails {
+    justify-content: space-between;
+  }
 }

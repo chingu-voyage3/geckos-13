@@ -21,7 +21,11 @@ class AnimatedSwitch extends Switch {
   }
 
   render() {
-    return <div ref={c => (this.center = c)}>{super.render()}</div>;
+    return (
+      <div className="animated-switch" ref={c => (this.center = c)}>
+        {super.render()}
+      </div>
+    );
   }
 }
 

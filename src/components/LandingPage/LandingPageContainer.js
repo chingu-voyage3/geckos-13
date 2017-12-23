@@ -7,7 +7,7 @@ class LandingPageContainer extends React.Component {
     return (
       <div className="landing-container">
         <div className="landing-center">
-          <Link to="/home">
+          <Link to="/cocktails">
             <img
               className="landing-cocktail"
               src="img/cocktail1.svg"

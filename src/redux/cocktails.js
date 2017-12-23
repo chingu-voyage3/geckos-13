@@ -4,6 +4,7 @@ import { fetchCocktails } from '../helpers/api';
 export const FETCHING_COCKTAILS = 'FETCHING_COCKTAILS';
 export const FETCHING_COCKTAILS_SUCCESS = 'FETCHING_COCKTAILS_SUCCESS';
 export const FETCHING_COCKTAILS_FAILURE = 'FETCHING_COCKTAILS_FAILURE';
+export const SELECT_COCKTAIL = 'SELECT_COCKTAIL';
 
 export const fetchingCocktails = () => ({
   type: FETCHING_COCKTAILS,
@@ -19,6 +20,11 @@ export const fetchCocktailsFailure = error => ({
   error,
 });
 
+export const selectCocktail = id => ({
+  type: SELECT_COCKTAIL,
+  id,
+});
+
 export const fetchAndHandleCocktails = () => dispatch => {
   dispatch(fetchingCocktails());
   const c = fetchCocktails();
@@ -28,6 +34,7 @@ export const fetchAndHandleCocktails = () => dispatch => {
 
 const initialState = {
   cocktails: [],
+  selectedCocktail: undefined,
   fetching: false,
   error: '',
 };
@@ -41,13 +48,20 @@ const cocktails = (state = initialState, action) => {
       };
     case FETCHING_COCKTAILS_SUCCESS:
       return {
+        ...state,
         fetching: false,
         cocktails: action.cocktails,
       };
     case FETCHING_COCKTAILS_FAILURE:
       return {
+        ...state,
         fetching: false,
         error: action.error,
+      };
+    case SELECT_COCKTAIL:
+      return {
+        ...state,
+        selectedCocktail: state.cocktails.find(x => x.id === action.id),
       };
     default:
       return state;

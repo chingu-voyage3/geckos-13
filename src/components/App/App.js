@@ -18,9 +18,9 @@ class App extends Component {
             <TransitionGroup component="main">
               <AnimatedSwitch key={location.key} location={location}>
                 <Route exact path="/" component={LandingPageContainer} />
-                <Route exact path="/home" component={HomePageContainer} />
+                <Route exact path="/cocktails" component={HomePageContainer} />
                 <Route
-                  path="/home/cocktails/:id"
+                  path="/cocktails/:id"
                   component={CocktailDetailContainer}
                 />
               </AnimatedSwitch>
